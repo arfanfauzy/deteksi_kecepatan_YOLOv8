@@ -9,16 +9,6 @@ from math import dist
 # Memuat model YOLO
 model = YOLO('yolov8s.pt')
 
-# Fungsi untuk mencetak koordinat mouse saat bergerak di jendela
-def RGB(event, x, y, flags, param):
-    if event == cv2.EVENT_MOUSEMOVE:
-        colorsBGR = [x, y]
-        print(colorsBGR)
-
-# Membuat jendela dan menetapkan fungsi callback mouse
-cv2.namedWindow('RGB')
-cv2.setMouseCallback('RGB', RGB)
-
 # Membuka file video
 cap = cv2.VideoCapture('testing.mp4')
 
@@ -125,7 +115,7 @@ while True:
     cv2.putText(frame, 'goingup:-' + str(u), (60, 130), cv2.FONT_HERSHEY_COMPLEX, 0.8, (0, 255, 255), 2)
 
     # Menampilkan frame
-    cv2.imshow("RGB", frame)
+    cv2.imshow("Sistem Deteksi Kecepatan", frame)
     if cv2.waitKey(1) & 0xFF == 27:  # Keluar jika tombol ESC ditekan
         break
 
